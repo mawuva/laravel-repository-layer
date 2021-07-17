@@ -1,10 +1,10 @@
 <?php
 
-namespace Mawuekom\LaravelRepositoryLayer;
+namespace Mawuekom\RepositoryLayer;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaravelRepositoryLayerServiceProvider extends ServiceProvider
+class RepositoryLayerServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -14,29 +14,29 @@ class LaravelRepositoryLayerServiceProvider extends ServiceProvider
         /*
          * Optional methods to load your package assets
          */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-repository-layer');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-repository-layer');
+        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'repository-layer');
+        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'repository-layer');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-repository-layer.php'),
+                __DIR__.'/../config/config.php' => config_path('repository-layer.php'),
             ], 'config');
 
             // Publishing the views.
             /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-repository-layer'),
+                __DIR__.'/../resources/views' => resource_path('views/vendor/repository-layer'),
             ], 'views');*/
 
             // Publishing assets.
             /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/laravel-repository-layer'),
+                __DIR__.'/../resources/assets' => public_path('vendor/repository-layer'),
             ], 'assets');*/
 
             // Publishing the translation files.
             /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-repository-layer'),
+                __DIR__.'/../resources/lang' => resource_path('lang/vendor/repository-layer'),
             ], 'lang');*/
 
             // Registering package commands.
@@ -50,11 +50,11 @@ class LaravelRepositoryLayerServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-repository-layer');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'repository-layer');
 
         // Register the main class to use with the facade
-        $this->app->singleton('laravel-repository-layer', function () {
-            return new LaravelRepositoryLayer;
+        $this->app->singleton('repository-layer', function () {
+            return new RepositoryLayer;
         });
     }
 }
