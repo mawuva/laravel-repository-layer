@@ -36,7 +36,7 @@ abstract class BaseRepository implements BaseRepositoryContract
      * 
      * @return Model
      */
-    abstract public function model(): Model;
+    abstract public function model();
 
     /**
      * Determine the columns on which the search will be done

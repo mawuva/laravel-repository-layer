@@ -2,6 +2,7 @@
 
 namespace Mawuekom\RepositoryLayer\Traits;
 
+use Illuminate\Pagination\Paginator;
 use Spatie\QueryBuilder\QueryBuilder;
 
 /**
@@ -114,7 +115,7 @@ trait BaseApiRepositoryTrait
      * 
      * @return mixed
      */
-    private function collectionQuery($modelStatement, $paginate = false): QueryBuilder
+    private function collectionQuery($modelStatement, $paginate = false)
     {
         $query = QueryBuilder::for($modelStatement)
                     ->allowedFilters($this ->filters())
@@ -140,7 +141,7 @@ trait BaseApiRepositoryTrait
      * 
      * @return mixed
      */
-    private function resourceQuery($modelStatement): QueryBuilder
+    private function resourceQuery($modelStatement)
     {
         return QueryBuilder::for($modelStatement)
                   ->allowedIncludes($this ->resourceRelation())
